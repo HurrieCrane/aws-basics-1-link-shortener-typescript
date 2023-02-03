@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  lambda-1:
+    build: .
+    ports:
+      - "9000:8080"
+    volumes:
+      - ./lambdas/lambda-1/dist:/var/task
+  dynamo-ts:
+    image: amazon/dynamodb-local
+    container_name: dynamo-ts
+    hostname: dynamo
+    restart: always
+    volumes:
+      - ./test/dynamo:/home/dynamodblocal/data
+    ports:
+      - "8000:8000"
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"

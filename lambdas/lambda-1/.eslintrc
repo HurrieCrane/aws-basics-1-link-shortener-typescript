@@ -1,0 +1,93 @@
+{
+  "root": true,
+  "env": {
+    "es2020": true,
+    "mongo": true,
+    "node": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prefer-arrow-functions"
+  ],
+  "ignorePatterns": [
+    "dist/",
+    "coverage/",
+    "test/",
+    "webpack.config.ts",
+    "*.spec.ts"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+  "rules": {
+    "@typescript-eslint/no-var-requires": 0,
+    "arrow-return-shorthand": 0,
+    "max-len": [
+      "error",
+      {
+        "code": 200,
+        "ignoreComments": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "no-unused-vars": "off",
+    "prefer-arrow-functions/prefer-arrow-functions": [
+      "warn",
+      {
+        "classPropertiesAllowed": false,
+        "disallowPrototype": false,
+        "returnStyle": "unchanged",
+        "singleReturnOnly": false
+      }
+    ],
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "prefer-destructuring": "error",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "objectLiteralProperty",
+        "format": [
+          "camelCase",
+          "UPPER_CASE",
+          "PascalCase"
+        ],
+      },
+    ],
+    "@typescript-eslint/no-explicit-any": [
+      "warn",
+      {
+        "ignoreRestArgs": true
+      }
+    ],
+    "@typescript-eslint/no-non-null-assertion": [
+      "warn"
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".ts"
+        ]
+      }
+    }
+  }
+}
