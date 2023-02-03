@@ -1,11 +1,17 @@
 version: '3.7'
 services:
-  lambda-1:
+  link-generator:
     build: .
     ports:
       - "9000:8080"
     volumes:
-      - ./lambdas/lambda-1/dist:/var/task
+      - ./lambdas/link-generator/dist:/var/task
+  link-resolver:
+    build: .
+    ports:
+      - "9001:8080"
+    volumes:
+      - ./lambdas/link-resolver/dist:/var/task
   dynamo-ts:
     image: amazon/dynamodb-local
     container_name: dynamo-ts
