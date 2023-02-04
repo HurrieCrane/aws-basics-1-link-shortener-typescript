@@ -13,7 +13,7 @@ const GenerateTinyLink = async (link: string): Promise<string> => {
     const hash = createHash('sha1').update(uri.toString()).digest('hex');
     const tinyUrl = new URL(`${domain}link/${hash}`).toString()
 
-    await StoreLink(hash, tinyUrl);
+    await StoreLink(hash, uri.toString());
 
     return tinyUrl;
 };

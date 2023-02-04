@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import { Configuration } from "webpack";
+import CompressionPlugin from "compression-webpack-plugin";
 
 /* eslint-disable */
 const { compilerOptions } = require("./tsconfig.json");
@@ -46,7 +47,9 @@ const webpackConfig: Configuration = {
     devtoolModuleFilenameTemplate: "[absolute-resource-path]",
   },
   devtool: "cheap-source-map",
-  plugins: [],
+  plugins: [
+    new CompressionPlugin()
+  ],
   externals: ['pino-pretty', 'parseurl'],
 };
 

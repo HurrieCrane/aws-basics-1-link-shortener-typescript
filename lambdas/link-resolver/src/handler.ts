@@ -7,13 +7,14 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
     const hash = event.pathParameters[queryParamName];
 
     try {
-        const tinyLink = await ResolveTinyLink(hash)
+        const tinyLink = await ResolveTinyLink(hash);
         return {
             statusCode: 301,
             headers: {
                 "Location": tinyLink,
             },
-            body: "",
+            body: undefined,
+            isBase64Encoded: false
         };
     }
     catch (e) {

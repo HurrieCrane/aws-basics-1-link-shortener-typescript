@@ -6,7 +6,10 @@
     "test": "test"
   },
   "scripts": {
-    "local": "lerna exec npm run build:local && docker compose up --build --remove-orphans"
+    "local": "lerna exec npm run build:local && docker compose up --build --remove-orphans",
+    "tf-plan": "lerna exec npm run build:prod && cd infrastucture && terraform plan",
+    "tf-apply": "cd infrastucture && terraform apply",
+    "tf-destroy": "cd infrastucture && terraform destroy"
   },
   "author": "",
   "license": "ISC",

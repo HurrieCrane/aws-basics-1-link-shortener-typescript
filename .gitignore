@@ -180,3 +180,8 @@ terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/node,terraform
 test/dynamo/*.db
+
+**/*/generator.zip
+**/*/resolver.zip
+
+**/*/.terraform.lock.hcl
